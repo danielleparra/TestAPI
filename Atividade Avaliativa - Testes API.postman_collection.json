@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "f53ac972-2cf2-4ed7-a695-01077c99331a",
+		"name": "Atividade Avaliativa - Testes API",
+		"description": "Atividade Avaliativa - Testes API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Serie - Game of Thrones",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "065b04c3-2b06-469a-abed-48edd1e8901d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Validate HTTP return\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Validate body response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"series\");",
+							"});",
+							"",
+							"pm.test(\"JSON body check\", function (){",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    tests[\"Verify if Title{} is Game of Thrones\"] = jsonData.Title === \"Game of Thrones\";",
+							"    tests[\"Verify the Language is English\"] = jsonData.Language == \"English\";",
+							"    tests[\"Verify if Release Date is April 17th, 2011.\"] = jsonData.Released === \"17 Apr 2011\";",
+							"    tests[\"Verify if it has 3 different genres\"] = jsonData.Genre === \"Action, Adventure, Drama\";",
+							"    tests[\"Verify if writers are David Benioff and D.B. Weiss\"] = jsonData.Writer === \"David Benioff, D.B. Weiss\";",
+							"    tests[\"Verify if Runtime is 57 min\"] = jsonData.Runtime === \"57 min\";",
+							"    tests[\"Verify if Country is USA, UK\"] = jsonData.Country === \"USA, UK\";",
+							"    tests[\"Verify if imdbID is tt0944947\"] = jsonData.imdbID === \"tt0944947\";",
+							"});",
+							"",
+							"pm.test(\"Response time is less than <500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Body matches string 2011\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2011\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string Clarke\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Clarke\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string Headey\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Headey\");",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://omdbapi.com/?t=Game of &apikey=28a82a69&plot=full",
+					"protocol": "http",
+					"host": [
+						"omdbapi",
+						"com"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "Game of "
+						},
+						{
+							"key": "apikey",
+							"value": "28a82a69"
+						},
+						{
+							"key": "plot",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie - Ant-Man and the Wasp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "496b0a63-91a2-4630-87b4-166845fc11ed",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Validate HTTP return\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Validate body response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Captain America\");",
+							"});",
+							"",
+							"pm.test(\"JSON body check\", function (){",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    tests[\"Verify if Title{} is Ant Man and the Wasp\"] = jsonData.Title === \"Ant-Man and the Wasp\";",
+							"    tests[\"Verify the Language is English\"] = jsonData.Language == \"English\";",
+							"    tests[\"Verify if Release Date is July 06th, 2018.\"] = jsonData.Released === \"06 Jul 2018\";",
+							"    tests[\"Verify if it has 3 different genres\"] = jsonData.Genre === \"Action, Adventure, Sci-Fi\";",
+							"    tests[\"Verify if Production is Walt Disney Pictures\"] = jsonData.Production === \"Walt Disney Pictures\";",
+							"    tests[\"Verify if Runtime is 118 min\"] = jsonData.Runtime === \"118 min\";",
+							"    tests[\"Verify if Country is USA\"] = jsonData.Country === \"USA\";",
+							"    tests[\"Verify if imdbID is tt5095030\"] = jsonData.imdbID === \"tt5095030\";",
+							"    tests[\"Verify if Director is Peyton Reed\"] = jsonData.Director === \"Peyton Reed\",",
+							"    tests[\"Verify if the main actors are Rudd, Lilly, Peña and Goggins\"] = jsonData.Actors === \"Paul Rudd, Evangeline Lilly, Michael Peña, Walton Goggins\";",
+							"});",
+							"",
+							"pm.test(\"Response time is less than <1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Body matches string Stan Lee\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Stan Lee\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://omdbapi.com/?t=Ant Man and the Wasp&apikey=28a82a69&plot=full",
+					"protocol": "http",
+					"host": [
+						"omdbapi",
+						"com"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "Ant Man and the Wasp"
+						},
+						{
+							"key": "apikey",
+							"value": "28a82a69"
+						},
+						{
+							"key": "plot",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2990123c-a0d4-4029-8944-c5f6962ad072",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "60c320be-5d7c-4718-940d-0fe10a0b7a3d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
